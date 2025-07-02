@@ -2,27 +2,60 @@ body {
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #fff;
 }
 
 .header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #eee;
 }
 
 .nav-items {
   display: flex;
-  list-style: none;
   gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-nav {
+#menu-button button {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+#menu-button {
   display: none;
 }
 
+#menu-close {
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: none;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  height: 100vh;
+  background-color: #fff;
+  padding: 2rem;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+}
+
 nav.open {
-  display: block;
+  right: 0;
 }
 
 .hero-img img {
@@ -33,38 +66,68 @@ nav.open {
 .main-text {
   font-size: 2rem;
   font-weight: bold;
+  margin: 1rem 2rem;
+}
+
+.hero-section p,
+button {
+  margin: 1rem 2rem;
 }
 
 .right-block {
-  background-color: #f0f0f0;
-  padding: 1rem;
+  background-color: #f9f9f9;
+  padding: 2rem;
 }
 
-.right-block div {
-  margin-bottom: 1rem;
+.right-block > div {
+  margin-bottom: 1.5rem;
 }
 
 .second-section {
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding: 1rem;
+  gap: 1.5rem;
 }
 
 .card {
-  background-color: #e0e0e0;
+  background-color: #f1f1f1;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 5px;
 }
 
 footer {
+  background-color: #f4f4f4;
+  padding: 2rem;
   text-align: center;
-  margin-top: 2rem;
-  padding: 1rem;
-  background-color: #222;
-  color: #fff;
 }
+
 footer a {
-  color: #ffa;
+  color: #007bff;
+  text-decoration: none;
+}
+
+footer a:hover {
   text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .nav-items {
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  #menu-button {
+    display: block;
+  }
+
+  #menu-close {
+    display: block;
+  }
+
+  nav {
+    display: block;
+  }
 }
